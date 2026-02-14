@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fame TG - Подать заявку</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Fame TG</h1>
+                <span class="domain">tgfame.website</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="apply.html" class="active">Подать заявку</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="apply-container">
+            <h1>Подать заявку на добавление</h1>
+            <p class="apply-subtitle">Заполните форму ниже. Все поля обязательны, кроме отмеченных.</p>
+
+            <form id="applyForm" class="apply-form">
+                <div class="form-group photo-upload">
+                    <label>Фото профиля *</label>
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Нажмите для выбора фото или перетащите сюда</p>
+                        <p class="upload-hint">Максимум 6 МБ, JPG или PNG</p>
+                        <input type="file" id="photoInput" accept="image/*" hidden>
+                    </div>
+                    <div id="photoPreview" class="photo-preview" style="display: none;">
+                        <img id="previewImg" src="#" alt="Preview">
+                        <button type="button" id="removePhoto" class="remove-photo"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Имя *</label>
+                    <input type="text" id="name" name="name" placeholder="Например: Иван Иванов" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username * (без @)</label>
+                    <input type="text" id="username" name="username" placeholder="ivanov" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Категория *</label>
+                    <select id="category" name="category" required>
+                        <option value="">Выберите категорию</option>
+                        <option value="medijki">Медийки</option>
+                        <option value="fame">Фейм</option>
+                        <option value="middle">Средний фейм</option>
+                        <option value="small">Малый фейм</option>
+                        <option value="channels">Каналы</option>
+                        <option value="scam">Скам</option>
+                        <option value="goods">Товары</option>
+                        <option value="coders">Кодеры</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="subscribersGroup" style="display: none;">
+                    <label for="subscribers">Количество подписчиков</label>
+                    <input type="number" id="subscribers" name="subscribers" placeholder="Например: 1500">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Описание *</label>
+                    <textarea id="description" name="description" rows="4" placeholder="Расскажите о себе, своих проектах, достижениях. Рекомендуется писать от третьего лица." required></textarea>
+                    <small>Рекомендуется использовать ИИ для улучшения текста</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="links">Ссылки на каналы/проекты *</label>
+                    <textarea id="links" name="links" rows="2" placeholder="https://t.me/channel1, https://t.me/channel2" required></textarea>
+                    <small>Введите ссылки через запятую</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Метки (необязательно)</label>
+                    <div class="badges-select">
+                        <label class="badge-checkbox">
+                            <input type="checkbox" name="badges[]" value="verified"> Verified
+                        </label>
+                        <label class="badge-checkbox">
+                            <input type="checkbox" name="badges[]" value="scam"> SCAM
+                        </label>
+                        <label class="badge-checkbox">
+                            <input type="checkbox" name="badges[]" value="pinned"> Закреплён
+                        </label>
+                        <label class="badge-checkbox">
+                            <input type="checkbox" name="badges[]" value="scamdb"> В скам базе
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Отправить заявку</button>
+            </form>
+
+            <div id="applySuccess" class="apply-success" style="display: none;">
+                <i class="fas fa-check-circle"></i>
+                <h2>Заявка отправлена!</h2>
+                <p>Спасибо, ваша заявка принята и отправлена на рассмотрение администратору. Вы получите уведомление в Telegram о результате.</p>
+                <a href="index.html" class="btn">Вернуться на главную</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+                                                                           </html>
