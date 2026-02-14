@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fame TG - рейтинг медийных личностей</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Fame TG</h1>
+                <span class="domain">tgfame.website</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Главная</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="apply.html">Подать заявку</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="categories">
+            <div class="category-tabs">
+                <button class="tab-btn active" data-category="medijki">Медийки</button>
+                <button class="tab-btn" data-category="fame">Фейм</button>
+                <button class="tab-btn" data-category="middle">Средний</button>
+                <button class="tab-btn" data-category="small">Малый</button>
+                <button class="tab-btn" data-category="channels">Каналы</button>
+                <button class="tab-btn" data-category="scam">Скам</button>
+                <button class="tab-btn" data-category="goods">Товары</button>
+                <button class="tab-btn" data-category="coders">Кодеры</button>
+            </div>
+            <div class="category-sub" id="category-sub"></div>
+        </div>
+
+        <div class="cards-grid" id="cardsGrid"></div>
+    </div>
+
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="profileContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+              </html>
