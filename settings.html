@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fame TG - Настройки</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Fame TG</h1>
+                <span class="domain">tgfame.website/settings</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="settings.html" class="active">Настройки</a></li>
+                    <li><a href="applications.html">Заявки</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="settings-container">
+            <h1>Настройки</h1>
+
+            <!-- Тема оформления -->
+            <div class="settings-section">
+                <h2>Тема оформления</h2>
+                <div class="theme-grid">
+                    <div class="theme-item" data-theme="dark">
+                        <div class="theme-preview dark"></div>
+                        <span>Тёмная</span>
+                    </div>
+                    <div class="theme-item" data-theme="black">
+                        <div class="theme-preview black"></div>
+                        <span>Черная</span>
+                    </div>
+                    <div class="theme-item" data-theme="red">
+                        <div class="theme-preview red"></div>
+                        <span>Красная</span>
+                    </div>
+                    <div class="theme-item" data-theme="red-black">
+                        <div class="theme-preview red-black"></div>
+                        <span>Красно-черная</span>
+                    </div>
+                    <div class="theme-item" data-theme="red-gray">
+                        <div class="theme-preview red-gray"></div>
+                        <span>Красно-серая</span>
+                    </div>
+                    <div class="theme-item" data-theme="purple">
+                        <div class="theme-preview purple"></div>
+                        <span>Фиолетовая</span>
+                    </div>
+                    <div class="theme-item" data-theme="blue">
+                        <div class="theme-preview blue"></div>
+                        <span>Синяя</span>
+                    </div>
+                    <div class="theme-item" data-theme="green">
+                        <div class="theme-preview green"></div>
+                        <span>Зеленая</span>
+                    </div>
+                    <div class="theme-item" data-theme="orange">
+                        <div class="theme-preview orange"></div>
+                        <span>Оранжевая</span>
+                    </div>
+                    <div class="theme-item" data-theme="pink">
+                        <div class="theme-preview pink"></div>
+                        <span>Розовая</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Фон главной страницы -->
+            <div class="settings-section">
+                <h2>Фон главной страницы</h2>
+                <div class="bg-upload">
+                    <button class="btn btn-primary" id="bgSelectBtn">Выбрать изображение</button>
+                    <input type="file" id="bgInput" accept="image/*" hidden>
+                    <div id="bgPreview" class="bg-preview" style="display: none;">
+                        <img src="#" alt="Preview">
+                        <button class="btn-remove" id="removeBg"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Эффекты -->
+            <div class="settings-section">
+                <h2>Эффекты</h2>
+                <div class="effect-item">
+                    <label class="switch">
+                        <input type="checkbox" id="snowEffect">
+                        <span class="slider"></span>
+                    </label>
+                    <div class="effect-info">
+                        <strong>Снег</strong>
+                        <p>Падающий снег на всём сайте</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сброс настроек -->
+            <div class="settings-section danger">
+                <h2>Сброс настроек</h2>
+                <p>Это действие вернёт все настройки к значениям по умолчанию, включая тему и фоновое изображение.</p>
+                <button class="btn btn-danger" id="resetSettings">Сбросить все настройки</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .settings-container {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .settings-container h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .settings-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .settings-section:last-child {
+            border-bottom: none;
+        }
+
+        .settings-section h2 {
+            font-size: 20px;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .theme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+        }
+
+        .theme-item {
+            text-align: center;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .theme-item:hover {
+            background: #f5f5f5;
+        }
+
+        .theme-item.active {
+            background: #e8f0fe;
+            border: 2px solid #667eea;
+        }
+
+        .theme-preview {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            border: 2px solid #ddd;
+        }
+
+        .theme-preview.dark { background: #2d2d2d; }
+        .theme-preview.black { background: #000; }
+        .theme-preview.red { background: #f44336; }
+        .theme-preview.red-black { background: linear-gradient(135deg, #f44336 50%, #000 50%); }
+        .theme-preview.red-gray { background: linear-gradient(135deg, #f44336 50%, #9e9e9e 50%); }
+        .theme-preview.purple { background: #9c27b0; }
+        .theme-preview.blue { background: #2196f3; }
+        .theme-preview.green { background: #4caf50; }
+        .theme-preview.orange { background: #ff9800; }
+        .theme-preview.pink { background: #e91e63; }
+
+        .bg-upload {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #764ba2;
+        }
+
+        .btn-danger {
+            background: #f44336;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #d32f2f;
+        }
+
+        .bg-preview {
+            position: relative;
+            display: inline-block;
+        }
+
+        .bg-preview img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .btn-remove {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #f44336;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .effect-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #667eea;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .effect-info {
+            flex: 1;
+        }
+
+        .effect-info strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .effect-info p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .settings-section.danger {
+            background: #fff3f3;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .settings-section.danger p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Загрузка сохранённых настроек
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            const savedSnow = localStorage.getItem('snow') === 'true';
+            const savedBg = localStorage.getItem('bgImage');
+
+            // Применяем сохранённую тему
+            document.body.className = savedTheme;
+            document.querySelector(`.theme-item[data-theme="${savedTheme}"]`)?.classList.add('active');
+
+            // Применяем снег
+            if (savedSnow) {
+                document.getElementById('snowEffect').checked = true;
+                document.body.classList.add('snow');
+            }
+
+            // Применяем фон
+            if (savedBg) {
+                document.body.style.backgroundImage = `url(${savedBg})`;
+            }
+
+            // Выбор темы
+            document.querySelectorAll('.theme-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    document.querySelectorAll('.theme-item').forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                    const theme = this.dataset.theme;
+                    document.body.className = theme;
+                    localStorage.setItem('theme', theme);
+                });
+            });
+
+            // Загрузка фона
+            const bgSelectBtn = document.getElementById('bgSelectBtn');
+            const bgInput = document.getElementById('bgInput');
+            const bgPreview = document.getElementById('bgPreview');
+            const previewImg = document.getElementById('bgPreview').querySelector('img');
+            const removeBg = document.getElementById('removeBg');
+
+            bgSelectBtn.addEventListener('click', () => bgInput.click());
+
+            bgInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const bgUrl = e.target.result;
+                        document.body.style.backgroundImage = `url(${bgUrl})`;
+                        localStorage.setItem('bgImage', bgUrl);
+                        
+                        previewImg.src = bgUrl;
+                        bgPreview.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            if (removeBg) {
+                removeBg.addEventListener('click', function() {
+                    document.body.style.backgroundImage = '';
+                    localStorage.removeItem('bgImage');
+                    bgPreview.style.display = 'none';
+                    bgInput.value = '';
+                });
+            }
+
+            // Эффект снега
+            const snowCheckbox = document.getElementById('snowEffect');
+            snowCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    document.body.classList.add('snow');
+                    localStorage.setItem('snow', 'true');
+                } else {
+                    document.body.classList.remove('snow');
+                    localStorage.setItem('snow', 'false');
+                }
+            });
+
+            // Сброс настроек
+            document.getElementById('resetSettings').addEventListener('click', function() {
+                if (confirm('Сбросить все настройки к значениям по умолчанию?')) {
+                    localStorage.clear();
+                    location.reload();
+                }
+            });
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+  </html>
