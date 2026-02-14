@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fame TG - рейтинг медийных личностей</title>
+    <title>Fame TG - медийные личности Telegram</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
+        <!-- Шапка -->
         <header>
             <div class="logo">
                 <h1>Fame TG</h1>
@@ -18,28 +19,49 @@
                 <ul>
                     <li><a href="index.html" class="active">Главная</a></li>
                     <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="apply.html">Подать заявку</a></li>
+                    <li><a href="settings.html">Настройки</a></li>
+                    <li><a href="applications.html">Заявки</a></li>
+                    <li><a href="news.html">Новости</a></li>
                 </ul>
             </nav>
         </header>
 
+        <!-- Заголовок -->
+        <div class="hero">
+            <h2>Медийные личности Telegram</h2>
+            <p>Каталог известных участников сообщества с подробной информацией</p>
+        </div>
+
+        <!-- Поиск -->
+        <div class="search-bar">
+            <input type="text" placeholder="Поиск по имени, описанию...">
+            <div class="search-filters">
+                <button class="filter-btn active">Канал</button>
+                <button class="filter-btn">Форум</button>
+            </div>
+        </div>
+
+        <!-- Вкладки категорий -->
         <div class="categories">
             <div class="category-tabs">
                 <button class="tab-btn active" data-category="medijki">Медийки</button>
                 <button class="tab-btn" data-category="fame">Фейм</button>
                 <button class="tab-btn" data-category="middle">Средний</button>
                 <button class="tab-btn" data-category="small">Малый</button>
+                <button class="tab-btn" data-category="coders">Кодеры</button>
+                <button class="tab-btn" data-category="goods">Товары</button>
                 <button class="tab-btn" data-category="channels">Каналы</button>
                 <button class="tab-btn" data-category="scam">Скам</button>
-                <button class="tab-btn" data-category="goods">Товары</button>
-                <button class="tab-btn" data-category="coders">Кодеры</button>
+                <button class="tab-btn" data-category="designers">Дизайнеры</button>
+                <button class="tab-btn" data-category="editors">Эдиторы</button>
             </div>
-            <div class="category-sub" id="category-sub"></div>
         </div>
 
+        <!-- Сетка карточек -->
         <div class="cards-grid" id="cardsGrid"></div>
     </div>
 
+    <!-- Модальное окно для просмотра профиля -->
     <div id="profileModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -49,4 +71,4 @@
 
     <script src="script.js"></script>
 </body>
-              </html>
+</html>
